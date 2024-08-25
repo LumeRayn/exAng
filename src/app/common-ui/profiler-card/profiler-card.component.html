@@ -1,0 +1,26 @@
+@if (profile){
+  <div class = "profile-card">
+    <div class="avatar-name">
+      <img
+        [src]="profile.avatarUrl | imgUrl" [alt] = "profile.username " class="profile-card__avatar"
+      > //[] - бандинги, позволяет привязать к артибута к той или иной переменной
+
+      <div class="profile-card__name">
+        <strong>{{profile.firstName}} {{profile.lastName}}</strong> //cкобки - интерполяций, просто вывод чего-то в шаблон
+        <span >{{ profile.username}}</span>
+      </div>
+    </div>
+
+    <div class="profile-card__description" >{{profile.description}}</div>
+    @for(skill of profile.stack;track profile.id) {
+      <div class="skills__tag">
+        {{ skill }}
+      </div>
+    }
+    <div class="profiler-acrd__action-bbtns">
+      <button class = "btn">Подписаться</button>
+    </div>
+  </div>
+} @else {
+  Not working !
+}

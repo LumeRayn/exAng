@@ -1,0 +1,11 @@
+<div class="profile-card_wrapper" *ngIf="profiles.length > 0; else noProfiles">
+  <app-profiler-card *ngFor="let profile of profiles" [profile]="profile"></app-profiler-card>
+<!--@for (profile of profiles; track profile.id){
+  <app-profiler-card>
+  [profile] = "profile"
+  </app-profiler-card>
+}-->
+</div>
+<ng-template #noProfiles>
+  <p>No profiles available.</p>
+</ng-template>
